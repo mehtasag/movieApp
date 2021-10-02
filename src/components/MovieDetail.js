@@ -86,6 +86,7 @@ const Section = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 40px 0;
+  min-height: 84vh;
   color: #ffffff;
 
   font-weight: 400;

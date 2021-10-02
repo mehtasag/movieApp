@@ -39,6 +39,8 @@ function Header() {
       </Search>
       <Section1>
         <Logo src={userLogo} />
+        <h3>Sagar</h3>
+        <i className="fas fa-chevron-circle-down"></i>
       </Section1>
     </Container>
   );
@@ -63,7 +65,28 @@ const Title = styled.h4`
   font-weight: bold;
   text-decoration: none;
 `;
-const Section1 = styled.div``;
+const Section1 = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 8px;
+  }
+  .fas {
+    position: absolute;
+    top: 3%;
+    right: 1.1%;
+    display: block;
+    margin-left: 8px;
+    color: #354a60;
+    cursor: pointer;
+  }
+`;
 
 const Search = styled.div`
   width: 50%;
@@ -79,9 +102,10 @@ const Search = styled.div`
       padding: 0px 8px;
       font-size: 20px;
       cursor: pointer;
-      height: 37px;
+      height: 36px;
       border: none;
       outline: none;
+      color: #0971e3;
 
       a {
         border: none;
@@ -92,8 +116,11 @@ const Search = styled.div`
       font-size: 14px;
       width: 100%;
       padding: 5px 5px 5px 10px;
-      height: 38px;
+      height: 36px;
+      background-color: #354a60;
+      border: 1px solid #fff;
       outline: none;
+      color: white;
     }
   }
 `;
