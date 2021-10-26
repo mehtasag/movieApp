@@ -233,7 +233,7 @@ function Checkout() {
         const { id } = paymentMethod;
 
         const response = await axios.post(
-          "http://localhost:5001/movieapp2021-8ad8c/us-central1/api/payment",
+          "https://us-central1-movieapp2021-8ad8c.cloudfunctions.net/api/payment",
           {
             amount: 399,
             id,
