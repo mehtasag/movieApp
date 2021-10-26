@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import userLogo from "./user.png";
 import { useDispatch } from "react-redux";
+import Dropdown from "./Dropdown";
 import {
   fetchAsyncMovies,
   fetchAsyncShows,
@@ -10,6 +10,7 @@ import {
 function Header() {
   const [term, setTerm] = useState("");
   const dispatch = useDispatch();
+
   const handleSearch = (e) => {
     e.preventDefault();
     // console.log("You searched", term);
@@ -38,9 +39,7 @@ function Header() {
         </form>
       </Search>
       <Section1>
-        <Logo src={userLogo} />
-        <h3>Sagar</h3>
-        <i className="fas fa-chevron-circle-down"></i>
+        <Dropdown />
       </Section1>
     </Container>
   );
@@ -55,10 +54,6 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Logo = styled.img`
-  width: 38px;
-  height: 38px;
-`;
 const Title = styled.h4`
   color: #ffffff;
   font-size: 20px;
@@ -66,26 +61,26 @@ const Title = styled.h4`
   text-decoration: none;
 `;
 const Section1 = styled.div`
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
 
-  h3 {
-    font-size: 14px;
-    color: gray;
-    text-align: center;
-    justify-content: center;
-    margin-top: 10%;
-    margin-left: 8px;
-  }
-  .fas {
-    position: absolute;
-    top: 3%;
-    right: 1.1%;
-    display: block;
-    margin-left: 8px;
-    color: #354a60;
-    cursor: pointer;
-  }
+  // h3 {
+  //   font-size: 14px;
+  //   color: gray;
+  //   text-align: center;
+  //   justify-content: center;
+  //   margin-top: 10%;
+  //   margin-left: 8px;
+  // }
+  // .fas {
+  //   position: absolute;
+  //   top: 3%;
+  //   right: 1.1%;
+  //   display: block;
+  //   margin-left: 8px;
+  //   color: #354a60;
+  //   cursor: pointer;
+  // }
 `;
 
 const Search = styled.div`

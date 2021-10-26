@@ -85,13 +85,13 @@ function MovieList() {
   return (
     <MovieWrapper>
       <MoviesList>
-        <h2>Latest movies</h2>
+        <h2>Latest Movies</h2>
         <MovieContainer>
           <Slider {...Settings}>{renderMovies}</Slider>
         </MovieContainer>
       </MoviesList>
       <MoviesList>
-        <h2>Latest shows</h2>
+        <h2>Latest Shows</h2>
 
         <MovieContainer>
           <Slider {...Settings}>{renderShows}</Slider>

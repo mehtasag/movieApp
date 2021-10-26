@@ -6,6 +6,8 @@ import {
   getSelectedMovieOrShow,
   removeSelectedMovieOrShow,
 } from "../features/movieSlice/movieSlice";
+
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 function MovieDetail() {
   const { imdbID } = useParams();
@@ -14,6 +16,7 @@ function MovieDetail() {
 
   const data = useSelector(getSelectedMovieOrShow);
 
+  const history = useHistory();
   useEffect(() => {
     dispatch(fetchAsyncMovieOrShowDetail(imdbID));
     return () => {
@@ -71,6 +74,12 @@ function MovieDetail() {
                 <span>{data.Awards}</span>
               </div>
             </Info>
+            <Charge
+              onClick={() => history.push(`/checkout/${data.imdbID}`)}
+              alt="Rent now"
+            >
+              Rent For $3.99
+            </Charge>
           </Left>
 
           <Right>
@@ -139,6 +148,25 @@ const Info = styled.div`
 
   span {
     color: #79b8f3;
+  }
+`;
+
+const Charge = styled.div`
+  width: fit-content;
+  margin-top: 2em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 18px;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  background-color: #79b8f3;
+  border-radius: 10px;
+
+  &:hover {
+    background: #247cf0;
+    color: white;
   }
 `;
 const Right = styled.div`

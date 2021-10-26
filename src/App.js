@@ -7,7 +7,15 @@ import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 import styled from "styled-components";
 import "./App.css";
+import Checkout from "./components/Checkout";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+// Import Stripe Component
+
 function App() {
+  const promise = loadStripe(
+    "pk_test_51Jn1b0AZTMnZvPdTQVnEymW1Q3t1aaEZ5gvFmXmwGZLPIeJOV6hnZ6QSZQq8qnpdJ0L2YpwFvdIfgngoab7thxhx00uf5r0VK5"
+  );
   return (
     <div className="app">
       <Router>
@@ -16,6 +24,12 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/movie/:imdbID" component={MovieDetail} />
+
+            <Route path="/checkout/:imdbID">
+              <Elements stripe={promise}>
+                <Checkout />
+              </Elements>
+            </Route>
             <Route component={NotFound} />
           </Switch>
         </Container1>
@@ -27,7 +41,6 @@ function App() {
 
 const Container1 = styled.div`
   margin: 0px 40px;
-  
 `;
 export default App;
 // {
