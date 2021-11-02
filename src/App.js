@@ -6,6 +6,7 @@ import MovieDetail from "./components/MovieDetail";
 import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 import styled from "styled-components";
+import Stripe from "./components/Stripe";
 import "./App.css";
 import Checkout from "./components/Checkout";
 import { loadStripe } from "@stripe/stripe-js";
@@ -23,9 +24,9 @@ function App() {
         <Container1>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/movie/:imdbID" component={MovieDetail} />
-
-            <Route path="/checkout/:imdbID">
+            <Route exact path="/movie/:imdbID" component={MovieDetail} />
+            <Route exact path="/stripe" component={Stripe} />
+            <Route exact path="/checkout/:imdbID">
               <Elements stripe={promise}>
                 <Checkout />
               </Elements>

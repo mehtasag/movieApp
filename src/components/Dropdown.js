@@ -9,9 +9,8 @@ import {
   IconButton,
 } from "@mui/material";
 import userLogo from "./user.png";
-import styled from "styled-components";
-
-import { PersonAdd, Logout } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import { Logout } from "@mui/icons-material";
 function Dropdown() {
   // Code For MUI
 
@@ -31,22 +30,26 @@ function Dropdown() {
         <Tooltip title="Account settings">
           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
             <img style={{ width: "38px", height: "38px" }} src={userLogo} />
-            {/* <h3>Sagar</h3> */}
-            {/* <i className="fas fa-chevron-circle-down"></i> */}
           </IconButton>
         </Tooltip>
 
         <Menu
           anchorEl={anchorEl}
           open={open}
-          style={open ? { opacity: "0.8", backgroundColor: "black", fontWeight: "bold" } : {}}
+          style={
+            open
+              ? { opacity: "0.8", backgroundColor: "black", fontWeight: "bold" }
+              : {}
+          }
           onClose={handleClose}
           onClick={handleClose}
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
           <MenuItem>Profile</MenuItem>
-          <MenuItem>Account & Settings</MenuItem>
+          <MenuItem>
+            <Link to="/stripe">Account & Settings</Link>
+          </MenuItem>
           <Divider />
           <MenuItem>Your Watchlist</MenuItem>
 
