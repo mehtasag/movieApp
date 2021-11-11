@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Dropdown from "./Dropdown";
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import {
   fetchAsyncMovies,
   fetchAsyncShows,
@@ -34,12 +36,30 @@ function Header() {
           />
 
           <button type="submit">
-            <i type="submit" className="fa fa-search" />
+            <SearchIcon
+              type="submit"
+              style={{
+                textAlign: "center",
+                alignItems: "center",
+                color: "black",
+                position: "relative",
+                top: "3px",
+                justifyContent: "center",
+                fontSize: "1.4rem",
+                fontWeight: "600",
+              }}
+            />
           </button>
         </form>
       </Search>
       <Section1>
         <Dropdown />
+        <Link to="/notifications">
+          <NotificationsActiveIcon
+            style={{ color: "#72E8AB", marginLeft: "10px", cursor: "pointer" }}
+            alt="Notifications"
+          />
+        </Link>
       </Section1>
     </Container>
   );
@@ -61,26 +81,10 @@ const Title = styled.h4`
   text-decoration: none;
 `;
 const Section1 = styled.div`
-  // display: flex;
-  // justify-content: space-between;
-
-  // h3 {
-  //   font-size: 14px;
-  //   color: gray;
-  //   text-align: center;
-  //   justify-content: center;
-  //   margin-top: 10%;
-  //   margin-left: 8px;
-  // }
-  // .fas {
-  //   position: absolute;
-  //   top: 3%;
-  //   right: 1.1%;
-  //   display: block;
-  //   margin-left: 8px;
-  //   color: #354a60;
-  //   cursor: pointer;
-  // }
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
 `;
 
 const Search = styled.div`

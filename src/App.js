@@ -11,6 +11,7 @@ import "./App.css";
 import Checkout from "./components/Checkout";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Notification from "./components/Notification";
 // Import Stripe Component
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route exact path="/movie/:imdbID" component={MovieDetail} />
             <Route exact path="/stripe" component={Stripe} />
+            <Route exact path="/notifications" component={Notification} />
             <Route exact path="/checkout/:imdbID">
               <Elements stripe={promise}>
                 <Checkout />

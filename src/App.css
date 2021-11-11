@@ -2,7 +2,7 @@
   margin: 0%;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 a {
@@ -11,4 +11,12 @@ a {
 
 body {
   background-color: #0f171e;
+}
+
+.MuiTabs-flexContainer {
+  justify-content: space-around !important;
+  color: white !important;
+  background-color: #fafafa !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
 }
