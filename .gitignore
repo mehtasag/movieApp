@@ -13,6 +13,7 @@
 # production
 /build
 MovieApiKey
+functions
 .env
 # misc
 
