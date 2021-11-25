@@ -38,7 +38,7 @@ function Dropdown() {
           open={open}
           style={
             open
-              ? { opacity: "0.8", backgroundColor: "black", fontWeight: "bold" }
+              ? { opacity: "0.7", backgroundColor: "black", fontWeight: "bold" }
               : {}
           }
           onClose={handleClose}
@@ -64,5 +64,4 @@ function Dropdown() {
     </div>
   );
 }
-
 export default Dropdown;

@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Dropdown from "./Dropdown";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import {
   fetchAsyncMovies,
   fetchAsyncShows,
+  getAllMovies,
 } from "../features/movieSlice/movieSlice";
 function Header() {
   const [term, setTerm] = useState("");
+  const [filter, setFilter] = useState([]);
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
@@ -21,6 +23,35 @@ function Header() {
     dispatch(fetchAsyncMovies(term));
     dispatch(fetchAsyncShows(term));
   };
+
+  useEffect(() => {}, [term]);
+
+  const data = useSelector(getAllMovies);
+  console.log("Data header is:", data);
+  const handleChange = (e) => {
+    setTerm(e);
+
+    let oldList = data.Search?.map((data, id) => {
+      return {
+        name: data?.title.toLowerCase(),
+        data,
+        id,
+      };
+    });
+    console.log("Old list is: ", oldList);
+
+    if (term !== "") {
+      let newList = [];
+
+      newList = oldList?.filter((data) =>
+        data.name.includes(term.toLocaleLowerCase())
+      );
+
+      setFilter(newList);
+      console.log("New List in header are:", newList);
+    }
+  };
+
   return (
     <Container>
       <Link to="/">
@@ -32,7 +63,8 @@ function Header() {
             type="text"
             value={term}
             placeholder="Search your favourite movies or shows"
-            onChange={(e) => setTerm(e.target.value)}
+            // onChange={(e) => setTerm(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           />
 
           <button type="submit">

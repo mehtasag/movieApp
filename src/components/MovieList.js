@@ -60,6 +60,8 @@ function MovieList() {
   };
   const movies = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
+
+  console.log("Movie List:", movies);
   let renderMovies,
     renderShows = "";
 

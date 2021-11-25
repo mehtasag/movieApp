@@ -7,7 +7,6 @@ import Offering from "./Offering";
 import Updates from "./Updates";
 import styled from "styled-components";
 
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -45,6 +44,7 @@ function Notification() {
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 2, borderColor: "black" }}>
           <Tabs
+            style={{ background: "black !important" }}
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
@@ -73,7 +73,8 @@ function Notification() {
 }
 
 const Notifcations = styled.div`
-  height: 84.3vh;
+  min-height: 84.3vh;
+
   color: white;
 `;
 export default Notification;
