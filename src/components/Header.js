@@ -55,7 +55,7 @@ function Header() {
   return (
     <Container>
       <Link to="/">
-        <Title>Movies App</Title>
+        <Title>Movies App 2021</Title>
       </Link>
       <Search>
         <form onSubmit={handleSearch}>

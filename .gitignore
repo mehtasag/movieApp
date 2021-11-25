@@ -12,11 +12,12 @@
 
 # production
 /build
+functions/
+
 MovieApiKey
 
 .env
 # misc
-./functions
 .DS_Store
 .env.local
 .env.development.local
